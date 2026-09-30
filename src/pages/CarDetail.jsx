@@ -30,47 +30,51 @@ export default function CarDetail() {
         &larr; Back to all cars
       </Link>
 
-      <div className="car-detail-photo">
-        <img src={car.photo.replace("w=600", "w=1200")} alt={`${car.make} ${car.model}`} />
+      <div className="car-detail-content">
+        <div className="car-detail-photo">
+          <img src={car.photo.replace("w=600", "w=800")} alt={`${car.make} ${car.model}`} />
+        </div>
+
+        <div className="car-detail-info">
+          <h1>
+            {car.make} {car.model} <span className="car-year">({car.year})</span>
+          </h1>
+
+          <dl className="spec-list">
+            <div>
+              <dt>Body type</dt>
+              <dd>{car.bodyType}</dd>
+            </div>
+            <div>
+              <dt>Seats</dt>
+              <dd>{car.seats}</dd>
+            </div>
+            <div>
+              <dt>Transmission</dt>
+              <dd>{car.transmission}</dd>
+            </div>
+            <div>
+              <dt>Pickup location</dt>
+              <dd>{car.location}</dd>
+            </div>
+            <div>
+              <dt>Price</dt>
+              <dd>{car.pricePerDay} ETB/day</dd>
+            </div>
+          </dl>
+
+          {car.available ? (
+            <button
+              className="btn btn-primary"
+              onClick={() => navigate("/checkout", { state: { car } })}
+            >
+              Book this car
+            </button>
+          ) : (
+            <p className="badge badge-unavailable">Currently unavailable</p>
+          )}
+        </div>
       </div>
-
-      <h1>
-        {car.make} {car.model} <span className="car-year">({car.year})</span>
-      </h1>
-
-      <dl className="spec-list">
-        <div>
-          <dt>Body type</dt>
-          <dd>{car.bodyType}</dd>
-        </div>
-        <div>
-          <dt>Seats</dt>
-          <dd>{car.seats}</dd>
-        </div>
-        <div>
-          <dt>Transmission</dt>
-          <dd>{car.transmission}</dd>
-        </div>
-        <div>
-          <dt>Pickup location</dt>
-          <dd>{car.location}</dd>
-        </div>
-        <div>
-          <dt>Price</dt>
-          <dd>{car.pricePerDay} ETB/day</dd>
-        </div>
-      </dl>
-
-      {car.available ? (
-        <button
-          className="btn btn-primary"
-          onClick={() => navigate("/checkout", { state: { car } })}
-        >
-          Book this car
-        </button>
-      ) : (
-        <p className="badge badge-unavailable">Currently unavailable</p>
-      )}
     </section>
   );
 }

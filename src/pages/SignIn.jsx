@@ -19,21 +19,30 @@ export default function SignIn() {
 
   return (
     <section className="sign-in">
-      <h1>Sign in</h1>
-      <p>This is a mock sign-in for the capstone demo &mdash; any name works.</p>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Your name</label>
-        <input
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="e.g. Abel Tesfaye"
-          required
+      <div className="sign-in-content">
+        <h1>Sign in</h1>
+        <p>This is a mock sign-in for the capstone demo &mdash; any name works.</p>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">Your name</label>
+          <input
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="e.g. Abel Tesfaye"
+            required
+          />
+          <button className="btn btn-primary" type="submit">
+            Sign in
+          </button>
+        </form>
+      </div>
+      <div className="sign-in-image">
+        <img
+          src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1200"
+          alt="Luxury sports car"
+          loading="lazy"
         />
-        <button className="btn btn-primary" type="submit">
-          Sign in
-        </button>
-      </form>
+      </div>
     </section>
   );
 }

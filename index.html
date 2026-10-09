@@ -1,12 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RentWise — Car Rental</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User directory</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>USER DIRECTORY</h1>
+    <div class="header-favorites">
+      ♡ Favorites
+    </div>
+  </header>
+
+  <div class="search-container">
+    <div class="search-inner">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Search..."
+        aria-label="Search users"
+      />
+      <button class="search-btn">Search</button>
+    </div>
+  </div>
+
+  <main class="layout">
+    <section class="panel" aria-labelledby="usersTitle">
+      <h2 id="usersTitle">Main Data</h2>
+      <p id="status" class="status" role="status"></p>
+      <div id="userList" class="card-list"></div>
+    </section>
+
+    <aside class="panel" aria-labelledby="favTitle">
+      <h2 id="favTitle">Favorites</h2>
+      <div id="favoriteList" class="card-list"></div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>Contact Explorer &bull; Data from DummyJSON</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
